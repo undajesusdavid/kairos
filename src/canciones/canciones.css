@@ -1,0 +1,106 @@
+.canciones-root {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+}
+
+.wrapper-buscador {
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.input-buscar {
+    display: block;
+    width: 50%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-buscar:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-buscar::placeholder {
+    color: #6c757d;
+    opacity: 1;
+    /* Firefox */
+}
+
+.input-buscar::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #6c757d;
+}
+
+.input-buscar::-webkit-input-placeholder {
+    /* Chrome, Opera, Safari */
+    color: #6c757d;
+}
+
+.cancion-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+.song-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: sans-serif;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+}
+
+.song-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.song-artist,
+.song-type {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.song-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.song-link:hover {
+    background-color: #0056b3;
+}
