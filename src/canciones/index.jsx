@@ -3,18 +3,18 @@ import {canciones} from "./data";
 import "./canciones.css";
 import {useState } from "react";
 import Paginacion from "./components/Paginacion";
-//import supabase from "../utils/supabase";
+import { useSupabase } from "../utils/SupabaseProvider";
 
 function Canciones() {
-  /*const [canciones, setCanciones] = useState([]);*/
+  const { supabase, session } = useSupabase();
+  //const [canciones, setCanciones] = useState([]);
   const [resultadosBusqueda, setResultadosBusqueda] = useState(canciones);
 
- /* useEffect(() => {
+  /*useEffect(() => {
     async function getCanciones() {
-      const { data: canciones } = await supabase.from("canciones").select();
-
-      if (canciones.length > 1) {
-        setCanciones(canciones);
+      let { data: sings } = await supabase.from("canciones").select("*");
+      if (sings?.length > 1) {
+        setCanciones(sings);
       }
     }
 
@@ -25,18 +25,26 @@ function Canciones() {
     setResultadosBusqueda(resultados);
   };
 
-  return (
-    <div className="canciones-root">
-      <Buscador
-        datos={canciones}
-        onResultadosActualizados={actualizarResultados}
-      />
+  if (session) {
+    return (
+      <div className="canciones-root">
+        <Buscador
+          datos={canciones}
+          onResultadosActualizados={actualizarResultados}
+        />
 
-      {resultadosBusqueda.length > 0 ? (
-        <Paginacion datos={resultadosBusqueda} datosPorPagina={8} />
-      ) : (
-        <h2 className="sin-resultados">No se encontraron resultados.</h2>
-      )}
+        {resultadosBusqueda.length > 0 ? (
+          <Paginacion datos={resultadosBusqueda} datosPorPagina={8} />
+        ) : (
+          <h2 className="sin-resultados">No se encontraron resultados.</h2>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h1>Error de conexion con supabase</h1>
     </div>
   );
 }
