@@ -1,17 +1,16 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function CancionCard({ cancion }) {
-  const { id, nombre, interprete, tipo, link } = cancion;
+  const { id, nombre, interpretes: interprete } = cancion;
   const navigate = useNavigate();
   const cargarDetalles = () => {
-    navigate('/detalles/'+id);
-  }
+    navigate("/detalles/" + id);
+  };
 
   return (
     <div className="song-card" onClick={cargarDetalles}>
       <h2 class="song-title">{nombre}</h2>
-      <p class="song-artist">{interprete}</p>
-      <p class="song-type">{tipo}</p>
+      <p class="song-artist">{interprete.nombre}</p>
     </div>
   );
 }

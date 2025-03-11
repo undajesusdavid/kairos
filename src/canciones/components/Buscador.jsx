@@ -10,7 +10,7 @@ function Buscador({ datos, onResultadosActualizados }) {
     const resultadosFiltrados = datos.filter(
       (dato) =>
         dato.nombre.toLowerCase().includes(termino.toLowerCase()) ||
-        dato.interprete.toLowerCase().includes(termino.toLowerCase())
+        dato.interpretes.nombre.toLowerCase().includes(termino.toLowerCase())
     );
     onResultadosActualizados(resultadosFiltrados);
   };

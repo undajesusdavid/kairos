@@ -3,15 +3,11 @@ import supabase from "./supabase";
 const SupabaseContext = createContext();
 
 export const SupabaseProvider = ({ children }) => {
-  const [email, setEmail] = useState(import.meta.env.VITE_SUPABASE_EMAIL);
-  const [password, setPassword] = useState(import.meta.env.VITE_SUPABASE_PASSWORD);
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
-    let login = false;
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -29,22 +25,11 @@ export const SupabaseProvider = ({ children }) => {
       setLoading(false);
     });
 
-    if(!session && login == false){
-      autoLogin();
-      login = true;
-    }
-
-    console.log(session)
-
-    return () => {
-      subscription?.unsubscribe();
-      login = false;
-    }
-
-
+    return () => subscription?.unsubscribe();
+  
   }, []);
 
-  const autoLogin = async () => {
+  const hanldeSignIn = async (email,password) => {
   
     const { error } = await supabase.auth.signInWithPassword({
       email,
@@ -52,17 +37,21 @@ export const SupabaseProvider = ({ children }) => {
     });
     if (error) {
       console.error("Error al iniciar sesión:", error);
+      return false;
     }
+    return true;
   };
 
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
       console.error("Error al cerrar sesión:", error);
+      return false;
     }
+    return true;
   };
 
-  const value = { supabase, session, user, loading };
+  const value = { supabase, session, user, loading, hanldeSignIn, handleSignOut };
 
   return (
     <SupabaseContext.Provider value={value}>

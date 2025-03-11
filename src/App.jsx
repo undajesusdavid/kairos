@@ -2,8 +2,28 @@ import { Route, Routes } from "react-router";
 import "./App.css";
 import Canciones from "./canciones/index.jsx";
 import DetallesCancion from "./detalles_cancion/index.jsx";
+import { useSupabase } from "./utils/SupabaseProvider.jsx";
+import { useEffect, useState } from "react";
 
 function App() {
+
+  const {session, hanldeSignIn} = useSupabase();
+  const [autenticado, setAutenticado] = useState(false);
+ 
+  async function login(){
+    setAutenticado(await hanldeSignIn('undajesusdavid@gmail.com','Kaimegansusej95*'));
+  }
+  useEffect(() => {
+    if(!session){
+      login();
+    }
+    
+  },[])
+
+
+  if(autenticado === false){
+    return <h1>No esta autenticado</h1>
+  }
   return (
     <>
       <header className="header-app">
