@@ -5,8 +5,8 @@
 }
 
 .detalle-general  > .detalles{
-    background-color: rgba(240, 240, 240, 0.1);
-    padding: 20px;
+    background-color: rgba(240, 240, 240, 0.2);
+    padding: 0px;
     border-radius: 5%;
 }
 

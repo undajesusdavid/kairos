@@ -4,26 +4,23 @@ import Canciones from "./canciones/index.jsx";
 import DetallesCancion from "./detalles_cancion/index.jsx";
 import { useSupabase } from "./utils/SupabaseProvider.jsx";
 import { useEffect, useState } from "react";
+import Loading from "./components/Loading/index.jsx";
 
 function App() {
-
-  const {session, hanldeSignIn} = useSupabase();
+  const { session, hanldeSignIn } = useSupabase();
   const [autenticado, setAutenticado] = useState(false);
- 
-  async function login(){
-    setAutenticado(await hanldeSignIn('undajesusdavid@gmail.com','Kaimegansusej95*'));
+
+  async function login() {
+    setAutenticado(
+      await hanldeSignIn("undajesusdavid@gmail.com", "Kaimegansusej95*")
+    );
   }
   useEffect(() => {
-    if(!session){
+    if (!session) {
       login();
     }
-    
-  },[])
+  }, []);
 
-
-  if(autenticado === false){
-    return <h1>No esta autenticado</h1>
-  }
   return (
     <>
       <header className="header-app">
@@ -31,10 +28,14 @@ function App() {
         <h1 className="title-app">REPERTORIO KAIROS</h1>
       </header>
       <section className="main-app">
-        <Routes>
-          <Route path="/" element={<Canciones />} />
-          <Route path="/detalles/:id" element={<DetallesCancion />} />
-        </Routes>
+        {autenticado === false ? (
+          <Loading />
+        ) : (
+          <Routes>
+            <Route path="/" element={<Canciones />} />
+            <Route path="/detalles/:id" element={<DetallesCancion />} />
+          </Routes>
+        )}
       </section>
       <footer className="footer-app">
         <h2>IGLESIA CUADRANGULAR ACARIGUA - 2025 </h2>

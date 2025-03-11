@@ -5,6 +5,7 @@ import { getCancion } from "../controllers/CancionesController";
 import Encabezado from "./Encabezado";
 import DetalleGeneral from "./DetalleGeneral";
 import DetalleVocalistas from "./DetalleVocalistas";
+import Loading from "../components/Loading";
 
 function DetallesCancion() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function DetallesCancion() {
   }, []);
 
   if (cancion === null) {
-    return <p>Cargando</p>;
+    return <Loading />;
   }
 
   return (
