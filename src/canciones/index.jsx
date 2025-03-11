@@ -1,12 +1,10 @@
-import Buscador from "./components/Buscador";
-//import {canciones} from "./data";
 import "./canciones.css";
-import { useEffect, useState } from "react";
+import Buscador from "./components/Buscador";
 import Paginacion from "./components/Paginacion";
-import { useSupabase } from "../utils/SupabaseProvider";
+import { useEffect, useState } from "react";
+import { getCanciones } from "../controllers/CancionesController";
 
 function Canciones() {
-  const {supabase} = useSupabase();
   const [canciones, setCanciones] = useState([]);
   const [resultadosBusqueda, setResultadosBusqueda] = useState(canciones);
 
@@ -14,19 +12,11 @@ function Canciones() {
     setResultadosBusqueda(resultados);
   };
 
-  const getCanciones = async () => {
-    let { data } = await supabase
-      .from("canciones")
-      .select("id,nombre,interpretes(id,nombre)");
-    if (data.length > 0) {
+  useEffect(() => {
+    getCanciones((data)=>{
       setCanciones(data);
       setResultadosBusqueda(data);
-      console.log(data)
-    }
-  };
-
-  useEffect(() => {
-    getCanciones();
+    });
   }, []);
 
   return (

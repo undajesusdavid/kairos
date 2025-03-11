@@ -1,22 +1,15 @@
 import { useParams } from "react-router-dom";
-import { useSupabase } from "../utils/SupabaseProvider";
 import { useEffect, useState } from "react";
+import { getCancion } from "../controllers/CancionesController";
 
 function DetallesCancion() {
-  const { supabase } = useSupabase();
   const { id } = useParams();
   const [cancion, setCancion] = useState(null);
-
-  const getCancion = async () => {
-    const { data } = await supabase
-      .from("canciones")
-      .select("id,nombre,interpretes(nombre),link,generos(nombre)")
-      .eq("id", id);
-    setCancion(data[0]);
-  };
-
+  
   useEffect(() => {
-    getCancion();
+    getCancion(id, (data) => {
+      setCancion(data);
+    });
   }, []);
 
   if (cancion === null) {
@@ -34,10 +27,10 @@ function DetallesCancion() {
     >
       <h2 style={{ color: "#333", marginBottom: "10px" }}>{cancion.nombre}</h2>
       <p>
-        <strong>Intérprete:</strong> {cancion.interpretes.nombre}
+        <strong>Intérprete:</strong> {cancion.interprete}
       </p>
       <p>
-        <strong>Género:</strong> {cancion.generos.nombre || "No especificado"}
+        <strong>Género:</strong> {cancion.genero || "No especificado"}
       </p>
       <p>
         <strong>Enlace:</strong>{" "}
