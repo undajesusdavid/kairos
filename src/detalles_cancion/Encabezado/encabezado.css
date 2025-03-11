@@ -1,0 +1,16 @@
+.detalle-encabezado{
+    padding: 0px;
+    grid-area: encabezado;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.title-song{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    padding-bottom: 2px;
+    margin: 0px;
+    
+}

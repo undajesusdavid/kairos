@@ -1,0 +1,39 @@
+.detalle-vocalistas{
+    padding: 5px;
+    width: 100%;
+    grid-area: vocalistas;
+}
+
+.title-vocalistas{
+    text-align: left;
+    font-size: 15px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #6d2296;
+    color: white;
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e0e0e0;
+}

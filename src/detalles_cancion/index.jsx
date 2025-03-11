@@ -1,11 +1,15 @@
+import "./detalles_cancion.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCancion } from "../controllers/CancionesController";
+import Encabezado from "./Encabezado";
+import DetalleGeneral from "./DetalleGeneral";
+import DetalleVocalistas from "./DetalleVocalistas";
 
 function DetallesCancion() {
   const { id } = useParams();
   const [cancion, setCancion] = useState(null);
-  
+
   useEffect(() => {
     getCancion(id, (data) => {
       setCancion(data);
@@ -17,27 +21,15 @@ function DetallesCancion() {
   }
 
   return (
-    <div
-      style={{
-        fontFamily: "Arial, sans-serif",
-        padding: "20px",
-        maxWidth: "600px",
-        margin: "0 auto",
-      }}
-    >
-      <h2 style={{ color: "#333", marginBottom: "10px" }}>{cancion.nombre}</h2>
-      <p>
-        <strong>Intérprete:</strong> {cancion.interprete}
-      </p>
-      <p>
-        <strong>Género:</strong> {cancion.genero || "No especificado"}
-      </p>
-      <p>
-        <strong>Enlace:</strong>{" "}
-        <a href={cancion.link} target="_blank" rel="noopener noreferrer">
-          Ver en YouTube
-        </a>
-      </p>
+    <div className="root-detalles">
+      <Encabezado title={cancion.nombre} />
+      <DetalleGeneral
+        interprete={cancion.interprete}
+        genero={cancion.genero}
+        categorias={cancion.categorias}
+        link={cancion.link}
+      />
+      <DetalleVocalistas vocalistas={cancion.vocalistas} />
     </div>
   );
 }

@@ -1,0 +1,27 @@
+.root-detalles{
+    padding: 20px 20px 0px 20px;
+    display: grid;
+    gap: 5px;
+    grid-template:
+    "encabezado encabezado"
+    "general vocalistas" / 25vw 1fr
+}
+
+/*Telefonos*/
+@media (max-width: 576px) {
+    .root-detalles{
+        grid-template:
+        "encabezado   encabezado"
+        "general    general"
+        "vocalistas vocalistas";
+    }
+}
+
+/*Tablets*/
+@media (min-width: 576px) and (max-width: 991px) {
+    .root-detalles{
+        grid-template:
+        "encabezado   encabezado"
+        "general   vocalistas " / 35vw 1fr;
+    }
+}

@@ -1,0 +1,13 @@
+.letra_ensayo{
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5%;
+    grid-area: letra;
+}
+
+.letra_ensayo > .parrafo {
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}

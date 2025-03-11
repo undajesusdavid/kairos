@@ -1,0 +1,60 @@
+.detalle-general {
+    padding: 5px;
+    grid-area: general;
+    text-align: left;
+}
+
+.detalle-general  > .detalles{
+    background-color: rgba(240, 240, 240, 0.1);
+    padding: 20px;
+    border-radius: 5%;
+}
+
+.title-general{
+    text-align: left;
+    font-size: 15px;
+}
+
+
+.btn-letra {
+    background-color: #5127b5;
+    /* Verde */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+    /* Transición suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+}
+
+.btn-letra:hover {
+    background-color: #671b8d;
+    /* Verde más oscuro al pasar el ratón */
+}
+
+.btn-letra:active {
+    background-color: #63109a;
+    /* Verde aún más oscuro al hacer clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Sombra más pequeña al hacer clic */
+    transform: translateY(2px);
+    /* Ligero desplazamiento hacia abajo al hacer clic */
+}
+
+
+
+/*Telefonos*/
+@media (max-width: 576px) {
+    .detalle-general {
+       margin: 0 auto;
+    }
+}
