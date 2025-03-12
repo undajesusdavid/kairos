@@ -11,6 +11,7 @@
     background-color: #f0f0f0;
 }
 
+
 .slider {
     width: 100%;
     max-width: none;
@@ -35,7 +36,6 @@
 
 .slider-controls {
     position: absolute;
-    /* Posiciona los controles de forma absoluta */
     top: 0;
     left: 0;
     width: 100%;
@@ -48,22 +48,19 @@
     width: 50%;
     height: 100%;
     background-color: transparent;
-    /* Hace los botones transparentes */
     border: none;
     font-size: 1.2rem;
     color: transparent;
-    /* Hace el texto transparente */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    /* Añade una transición suave */
+    -webkit-tap-highlight-color: transparent;
+    /* Elimina el resaltado al tocar */
 }
 
 .slider-controls button:hover {
     background-color: rgba(0, 0, 0, 0.1);
-    /* Cambia el fondo al pasar el ratón */
 }
 
 .slider-controls button:active {
-    background-color: rgba(255, 255, 255, 0.2);
-    /* Oscurece el fondo al hacer clic */
+    background-color: rgba(0, 0, 0, 0.2);
 }
