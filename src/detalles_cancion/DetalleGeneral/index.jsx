@@ -1,6 +1,10 @@
+import { useNavigate, useParams } from "react-router";
 import "./detalle_general.css";
 
 function DetalleGeneral({ interprete, genero, categorias, link }) {
+  const {id} = useParams();
+  const navigate = useNavigate();
+
   return (
     <div className="detalle-general">
       <h3 className="title-general">DETALLES DE LA CANCIÓN</h3>
@@ -27,7 +31,7 @@ function DetalleGeneral({ interprete, genero, categorias, link }) {
             Escuchar en youtube
           </a>
         </p>
-        <button className="btn-letra">Letra para ensayar</button>
+        <button className="btn-letra" onClick={() => navigate("/letra_ensayo/"+id) }>Letra para ensayar</button>
       </div>
     </div>
   );

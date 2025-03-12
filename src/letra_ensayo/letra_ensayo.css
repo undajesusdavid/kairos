@@ -1,0 +1,69 @@
+.root-letra-ensayo {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.slider {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.slide {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-controls {
+    position: absolute;
+    /* Posiciona los controles de forma absoluta */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-controls button {
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    /* Hace los botones transparentes */
+    border: none;
+    font-size: 1.2rem;
+    color: transparent;
+    /* Hace el texto transparente */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Añade una transición suave */
+}
+
+.slider-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Cambia el fondo al pasar el ratón */
+}
+
+.slider-controls button:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Oscurece el fondo al hacer clic */
+}

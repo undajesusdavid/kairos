@@ -5,6 +5,7 @@ import DetallesCancion from "./detalles_cancion/index.jsx";
 import { useSupabase } from "./utils/SupabaseProvider.jsx";
 import { useEffect, useState } from "react";
 import Loading from "./components/Loading/index.jsx";
+import LetraEnsayo from "./letra_ensayo/index.jsx";
 
 function App() {
   const { session, hanldeSignIn } = useSupabase();
@@ -34,6 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Canciones />} />
             <Route path="/detalles/:id" element={<DetallesCancion />} />
+            <Route path="/letra_ensayo/:id" element={<LetraEnsayo />} />
           </Routes>
         )}
       </section>

@@ -1,5 +1,5 @@
 import "./detalles_cancion.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCancion } from "../controllers/CancionesController";
 import Encabezado from "./Encabezado";
