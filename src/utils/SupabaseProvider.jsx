@@ -29,17 +29,13 @@ export const SupabaseProvider = ({ children }) => {
   
   }, []);
 
-  const hanldeSignIn = async (email,password) => {
+  const hanldeSignIn = async (email,password,callback) => {
   
-    const { error } = await supabase.auth.signInWithPassword({
+    const { session, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    if (error) {
-      console.error("Error al iniciar sesión:", error);
-      return false;
-    }
-    return true;
+    callback(error);
   };
 
   const handleSignOut = async () => {

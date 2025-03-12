@@ -1,7 +1,7 @@
 import supabase from "../utils/supabase";
 
 export async function getCanciones(callback) {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("canciones")
     .select("id,nombre,interpretes(nombre)");
   const dataStructure = data.map((data) => {
@@ -11,7 +11,7 @@ export async function getCanciones(callback) {
       interprete: data.interpretes.nombre,
     };
   });
-  callback(dataStructure);
+  callback(dataStructure,error);
 }
 
 export async function getCancion(id, callback) {

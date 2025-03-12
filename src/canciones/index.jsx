@@ -3,8 +3,11 @@ import Buscador from "./components/Buscador";
 import Paginacion from "./components/Paginacion";
 import { useEffect, useState } from "react";
 import { getCanciones } from "../controllers/CancionesController";
+import Loading from "../components/Loading";
 
 function Canciones() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [canciones, setCanciones] = useState([]);
   const [resultadosBusqueda, setResultadosBusqueda] = useState(canciones);
 
@@ -13,11 +16,22 @@ function Canciones() {
   };
 
   useEffect(() => {
-    getCanciones((data)=>{
+    setLoading(true);
+    getCanciones((data,error)=>{
+      setError(error);
       setCanciones(data);
       setResultadosBusqueda(data);
+      setLoading(false);
     });
   }, []);
+
+  if(loading){
+    return <Loading />
+  }
+
+  if(error){
+    return <div className="sin-resultados">error de consulta con la base de datos</div>
+  }
 
   return (
     <div className="canciones-root">

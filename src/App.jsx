@@ -8,19 +8,26 @@ import Loading from "./components/Loading/index.jsx";
 import LetraEnsayo from "./letra_ensayo/index.jsx";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const { session, hanldeSignIn } = useSupabase();
   const [autenticado, setAutenticado] = useState(false);
 
-  async function login() {
-    setAutenticado(
-      await hanldeSignIn("undajesusdavid@gmail.com", "Kaimegansusej95*")
-    );
-  }
   useEffect(() => {
     if (!session) {
-      login();
+      setLoading(true);
+      hanldeSignIn("undajesusdavid@gmail.com", "Kaimegansusej95*", (error) => {
+        setAutenticado(error ? false : true);
+        setLoading(false)
+
+      });
+    }else{
+      setAutenticado(true);
     }
   }, []);
+
+  if(loading){
+    return <Loading />
+  }
 
   return (
     <>
@@ -30,7 +37,7 @@ function App() {
       </header>
       <section className="main-app">
         {autenticado === false ? (
-          <Loading />
+          <div>Error de conexion con la base de datos</div>
         ) : (
           <Routes>
             <Route path="/" element={<Canciones />} />
