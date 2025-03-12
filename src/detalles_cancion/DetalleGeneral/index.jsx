@@ -31,7 +31,7 @@ function DetalleGeneral({ interprete, genero, categorias, link }) {
             Escuchar en youtube
           </a>
         </p>
-        <button className="btn-letra" onClick={() => navigate("/letra_ensayo/"+id) }>Letra para ensayar</button>
+        <button className="btn-letra" onClick={() => navigate("/canciones/letra_ensayo/"+id) }>Letra para ensayar</button>
       </div>
     </div>
   );

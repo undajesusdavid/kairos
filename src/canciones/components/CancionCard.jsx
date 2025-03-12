@@ -4,7 +4,7 @@ function CancionCard({ cancion }) {
   const { id, nombre, interprete } = cancion;
   const navigate = useNavigate();
   const cargarDetalles = () => {
-    navigate("/detalles/" + id);
+    navigate("/canciones/detalle/" + id);
   };
 
   return (
