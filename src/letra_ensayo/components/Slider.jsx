@@ -16,13 +16,25 @@ const Slider = ({ slides }) => {
     setCurrentIndex(newIndex);
   };
 
+  const goToFirst = () => {
+    setCurrentIndex(0);
+  };
+
   return (
     <div className="slider">
+      <button className="first-slide-button" onClick={goToFirst}>
+       Volver a la primera lamina
+      </button>
+      <div className="slide-count">
+        {currentIndex + 1} / {slides.length}
+      </div>
+      <div className="slide-content">
+        <Slide text={slides[currentIndex]} />
+      </div>
       <div className="slider-controls">
         <button onClick={goToPrevious}>Anterior</button>
         <button onClick={goToNext}>Siguiente</button>
       </div>
-      <Slide text={slides[currentIndex]} />
     </div>
   );
 };
