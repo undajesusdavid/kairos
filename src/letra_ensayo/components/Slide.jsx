@@ -2,7 +2,7 @@
 const Slide = ({ text }) => {
   return (
     <div className="slide">
-      <p>{text}</p>
+      <pre>{text}</pre>
     </div>
   );
 };
