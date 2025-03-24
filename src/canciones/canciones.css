@@ -4,9 +4,9 @@
     padding: 0px;
 }
 
-.barra-busquedas{
+.barra-busquedas {
     height: 10vh;
-    gap:10px;
+    gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,11 +14,11 @@
 
 .wrapper-filtro {
     display: flex;
-    gap:5px;
+    gap: 5px;
     align-items: center;
 }
 
-.wrapper-filtro > select{
+.wrapper-filtro>select {
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -31,7 +31,7 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.wrapper-buscador{
+.wrapper-buscador {
     width: 50vw;
     display: flex;
     align-items: center;
@@ -76,7 +76,7 @@
     color: #6c757d;
 }
 
-.sin-resultados{
+.sin-resultados {
     text-align: center;
     margin-top: 20vh;
 }
@@ -169,9 +169,9 @@
     /* Cambia el cursor a "no permitido" */
 }
 
-.controlesPaginacion > button.active {
+.controlesPaginacion>button.active {
     background-color: #6002a8;
-    color:white;
+    color: white;
     /* Un gris más claro al presionar */
 }
 
@@ -181,11 +181,12 @@
     .input-buscar {
         width: 100%;
     }
+
     .cancion-wrapper {
         gap: 10px;
     }
 
-    .controlesPaginacion > button{
+    .controlesPaginacion>button {
         margin-left: 5px;
         padding: 8px 14px;
         font-size: 14px;
@@ -194,9 +195,9 @@
     .song-card {
         width: 80vw;
         padding: 5px;
-        
+
     }
-    
+
 }
 
 /*Tablets*/

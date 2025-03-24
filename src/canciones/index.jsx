@@ -4,7 +4,7 @@ import Paginacion from "./components/Paginacion";
 import { useEffect, useState } from "react";
 import { getCanciones } from "../controllers/CancionesController";
 import Loading from "../components/Loading";
-import Filtros from "./components/filtros";
+import Filtros from "./components/Filtros";
 
 function Canciones() {
   const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ function Canciones() {
     getCanciones((data, error) => {
       setError(error);
       setCanciones(data);
-      setResultadosFiltro(data)
+      setResultadosFiltro(data);
       setResultadosBusqueda(data);
       setLoading(false);
     });
