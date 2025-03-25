@@ -1,0 +1,15 @@
+.wrapper-filtros{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.wrapper-buttons-filter{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 15px;
+}

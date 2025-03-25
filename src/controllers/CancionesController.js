@@ -4,7 +4,9 @@ export async function getCanciones(callback) {
   const { data, error } = await supabase
     .from("canciones")
     .select(
-      "id,nombre,interpretes(nombre),canciones_categorias(categorias(nombre))"
+      "id,nombre,interpretes(nombre),"
+      +"canciones_categorias(categorias(nombre)),"
+      +"canciones_vocalistas(vocalistas(nombre))"
     );
   const dataStructure = data.map((data) => {
     return {
@@ -12,6 +14,7 @@ export async function getCanciones(callback) {
       nombre: data.nombre,
       interprete: data.interpretes.nombre,
       categorias: data.canciones_categorias.map((x) => x.categorias.nombre),
+      vocalistas: data.canciones_vocalistas.map((x) => x.vocalistas.nombre),
     };
   });
   callback(dataStructure, error);

@@ -4,21 +4,15 @@
     padding: 0px;
 }
 
-.barra-busquedas {
-    height: 10vh;
-    gap: 10px;
+.barra-tools {
+    padding: 10px;
+    gap: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.wrapper-filtro {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
-
-.wrapper-filtro>select {
+.barra-tools select, input{
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -31,25 +25,30 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.wrapper-buscador {
-    width: 50vw;
+.filtros{
+    
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    border:1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+}
+
+.filtros:hover{
+    background-color: var(--color-principal);
+    color:white;
+}
+
+.wrapper-buscador {
+    width: 70%;
 }
 
 .input-buscar {
     width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ 
 }
 
 .input-buscar:focus {
@@ -75,6 +74,16 @@
     /* Chrome, Opera, Safari */
     color: #6c757d;
 }
+
+
+
+
+.filtro-categorias{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
 
 .sin-resultados {
     text-align: center;
@@ -103,8 +112,6 @@
     font-family: sans-serif;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-
-
 }
 
 .song-card:hover {
